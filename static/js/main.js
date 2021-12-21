@@ -30,16 +30,15 @@
                 })
                 .then(data => this.generateRandomEvent(data))
         },
-        generateRandomEvent(users) {
-                    // const user = users.map((use) => {
-                    //     return `${use.id}`
-                    // })
-                    
-                    // // for (let i = 0; i < 3; i++) {
-                    // randomNumber = Math.floor(Math.random() * users.length);
-                    // this.$randomEvents.innerHTML = `<p>${user[randomNumber]}</p>`;
-                // }
+        generateRandomEvent(events) {
+        //         randomNumber = Math.floor(Math.random() * users.length);
+        //         this.eventHTML = users.map((user) => {
+        //             return `<li>${user.title}</li>`
+        //         }).join('')
+        //         console.log(this.eventHTML);
+        //         this.$randomEvents.innerHTML = `<ul>${this.eventHTML}</ul>`
+
+        }         
         }
-    }
     app.init()
 })();
