@@ -30,6 +30,7 @@ p {
 }
 @media (min-width:1280px) {
     .header-box {
+        background-position: 50%;
         height: 90vh;
     }
     .box-text h3 {
@@ -39,6 +40,49 @@ p {
 
 /* Main */
 
+.random-events {
+    margin: 1rem;
+}
+.random-event {
+    list-style: none;
+    margin: 3rem 1rem;
+    overflow: hidden;
+}
+@media (min-width:1200px) {
+    .random-events {
+        display: flex;
+        flex-direction: row;
+    }
+    .random-event {
+        flex-grow: 1;
+        max-width: 33%;
+    }
+}
+.random-event:hover {
+    cursor: pointer;
+}
+.box-text--random img {
+    transition: ease all 0.3s;
+    width: 100%;
+}
+.random-event img:hover {
+    transform: scale(103%);  
+}
+.box-text--random {
+    position: relative;
+}
+.box-text--main {
+    line-height: 3rem;
+    padding: 2rem 3rem 0;
+}
+.box-date--main {
+    bottom: -0.8rem;
+    left: 3rem;
+    position: absolute;
+    padding: 0.5rem 1rem;
+    color: #FFFFFF;
+    background-color: #000000;
+}
 .main-events,
 .event {
     width: 100%;
@@ -51,13 +95,15 @@ p {
     position: relative;
 }
 .event {
-    padding: 0 0 5rem 0;
+    padding: 0 0 3rem 0;
+}
+.event:hover {
+    cursor: pointer;
 }
 .event:hover > .box-image img {
-    text-decoration: underline;
     transform: scale(110%);
 }
-.event:hover > h3{
+.event:hover > .box-text h3{
     text-decoration: underline;
 }
 .event img {
@@ -89,4 +135,23 @@ p {
         bottom: calc(50% - 2rem);
         left: -3rem;
     }
+}
+.event-arrow {
+    background-image: url(../media/all-icons/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 1.5rem;
+    width: 100%;
+}
+.newsletter--main {
+    color: #000000;
+    padding: 1.5rem 2rem;
+    border: 4px solid #000000;
+    text-decoration: none;
+    transition: ease background-color 0.3s;
+}
+.newsletter--main:hover {
+    color: #FFFFFF;
+    background-color: #000000;
 }
