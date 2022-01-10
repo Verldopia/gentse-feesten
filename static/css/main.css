@@ -4,16 +4,14 @@
          url('../fonts/Raleway/raleway-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'ralewaythin', sans-serif;
     font-size: 1.5rem;
 }
 h3,
@@ -35,6 +33,101 @@ p {
     }
     .box-text h3 {
         font-size: 3rem;
+    }
+}
+
+/* Header */
+
+.header-logo {
+    padding: 2rem;
+    width: 16rem;
+}
+@media (min-width: 48rem) {
+    .header-logo {
+        width: 24rem;
+    }
+}
+.hamburger-menu {
+    background-image: url(../media/all-icons/optimised-icons/gf-menu-optimised.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+@media (min-width: 1280px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+.large-menu {
+    display: none;
+}
+.large-menu--main {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 36rem;
+    color: #fff;
+}
+.large-menu--main form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.large-menu--main form input {
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    width: 22rem;
+    border: none;
+}
+.large-menu--main form button {
+    background-image: url(../media/all-icons/optimised-icons/search.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+}
+.language {
+    border: 1px solid red;
+    margin-left: 7rem;
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+}
+.large-menu--main ul {
+    padding: 2.5rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    list-style: none;
+}
+.large-menu--main ul a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+.line {
+    display: none;
+    margin: 0.5rem auto;
+    width: 2rem;
+    height: 0.2rem;
+    background-color: #fff;
+}
+.a-line:hover > .line {
+    display: block;
+}
+@media (min-width: 1280px) {
+    .large-menu {
+        display: block;
     }
 }
 
