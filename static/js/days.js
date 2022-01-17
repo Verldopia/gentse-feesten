@@ -17,10 +17,10 @@
         cacheElements() {
             this.$randomEvents = document.querySelector('.random-events');
             this.$filter = document.querySelector('.filter-categories');
+            this.$mainCategories = document.querySelector('.main-events__list');
         },
         generateUI() {
             this.fetchEventsJSON();
-            this.fetchCategoriesJSON();
         },
         async fetchEventsJSON() {
             await fetch(`https://www.pgm.gent/data/gentsefeesten/events_500.json`, {
@@ -34,11 +34,13 @@
             })
                 .then(data => {
                     this.generateRandomEvent(data)
-                    this.generateHtmlPerCategory(data)
+                    this.generateListeners(data)
+                    this.fetchCategoriesJSON(data)
                 })
         },
         generateRandomEvent(events) {
             const singularDay = events.filter(ev => ev.day === this.day);
+            this.generateHtmlPerCategory(singularDay)
             const randomEvent = singularDay.map((ev) => {
                 randomNumber = Math.floor(Math.random() * 17);
                 return `
@@ -51,11 +53,11 @@
                     <span>${ev.location}</span>
                 </div>` 
             });
-            // this.$randomEvents.innerHTML = `<ul class="random-event">${randomEvent[0]}</ul>`
-            // this.$randomEvents.innerHTML += `<ul class="random-event">${randomEvent[1]}</ul>`
-            // this.$randomEvents.innerHTML += `<ul class="random-event">${randomEvent[2]}</ul>`
+            this.$randomEvents.innerHTML = `<li class="random-event">${randomEvent[0]}</li>`
+            this.$randomEvents.innerHTML += `<li class="random-event">${randomEvent[1]}</li>`
+            this.$randomEvents.innerHTML += `<li class="random-event">${randomEvent[2]}</li>`
         },
-        async fetchCategoriesJSON() {
+        async fetchCategoriesJSON(singularDay) {
             await fetch(`https://www.pgm.gent/data/gentsefeesten/categories.json`, {
                 method: 'GET'
             })
@@ -65,14 +67,41 @@
                     }
                     return result.json()
             })
-                .then(data => this.generateCategories(data))
+                .then(data => {
+                    this.generateCategories(data)
+                })
         },
         generateCategories(data) {
-            this.listItem = data.map((cat) => `<li><button>${cat}</button></li>`).join('');
+            this.listItem = data.map((cat) => `<li class="filter-btn" data-category="${cat}"><button>${cat}</button></li>`).join('');
             this.$filter.innerHTML = `<ul>${this.listItem}</ul>`;
         },
+        generateListeners(event) {
+            this.$filterBtn = document.querySelectorAll('.filter-btn');
+            for (const button of this.$filterBtn) {
+                button.addEventListener("click", this.clickListener);
+            }
+        },
         generateHtmlPerCategory(data) {
-            console.log('hello')
+            console.log(data)
+            this.categoryItem = data.map((ev) => {
+                return `
+                <li class="main-event--item">
+                    <div class="box-text--random">
+                        <img src="../static/media/images/main-random/random-(1).jpg">
+                        <span class="box-date--main">${ev.day_of_week[0]}${ev.day_of_week[1]} ${ev.day} Jul ${ev.start} u.</span>
+                    </div>
+                    <div class="box-text--main">
+                        <h2>${ev.title}</h2>
+                        <span>${ev.location}</span>
+                    </div>
+                </li>` 
+            }).join('')
+            this.$mainCategories.innerHTML = `<ul class="main-events">${this.categoryItem}</ul>`
+            
+
+        },
+        clickListener() {
+            console.log('clicks!')
         }
         }
     app.init()

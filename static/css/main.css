@@ -163,14 +163,19 @@ button {
         max-width: 33%;
     }
 }
-.random-event:hover {
+.main-event--item {
+    overflow: hidden;
+}
+.random-event:hover,
+.main-event--item:hover {
     cursor: pointer;
 }
 .box-text--random img {
     transition: ease all 0.3s;
     width: 100%;
 }
-.random-event img:hover {
+.random-event img:hover,
+.main-event--item img:hover {
     transform: scale(103%);  
 }
 .box-text--random {
@@ -194,6 +199,18 @@ button {
     max-width: 100rem;
     margin: 0 auto;
     padding: 2rem;
+}
+@media (min-width:800px) {
+    .main-events {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 2rem auto;
+    }
+    .main-event--item {
+        width: 30%;
+        flex-grow: 1;
+    }
 }
 .box-image {
     overflow: hidden;
