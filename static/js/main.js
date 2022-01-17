@@ -17,17 +17,15 @@
             this.$background.style.backgroundImage = `url("static/media/images/background-images/Gentse-feesten-0${++randomNumber}.jpg")`;
         },
         async fetchEventsJSON() {
-            await fetch("static/data/events.json", {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+            await fetch(`https://www.pgm.gent/data/gentsefeesten/events_500.json`, {
+                method: 'GET'
             })
                 .then(result => {
                     if (!result.ok) {
                         throw Error('ERROR! this JSON-file is not found!');
                     }
                     return result.json()
-                })
+            })
                 .then(data => this.generateRandomEvent(data))
         },
         generateRandomEvent(events) {

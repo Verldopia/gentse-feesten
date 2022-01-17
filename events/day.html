@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/media/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Home | Gentse Feesten 2019</title>
+</head>
+<body>
+    <header>
+        <div class="header-box">
+            <div class="header-logo">
+                <a href="../index.html">
+                    <img src="../static/media/all-icons/optimised-icons/GF-logo-inverse-NL.svg" alt="Gentse Feesten logo">
+                </a>
+            </div>
+            <nav>
+                <div class="hamburger-menu"></div>
+                <div class="large-menu">
+                    <div class="large-menu--main">
+                        <form action="news.html" method="get">
+                            <input type="search" id="header-search--input" placeholder="Doorzoek het programma..." name="search">
+                            <button id="header-search--submit"></button>
+                            <select class="language">
+                                <option value="">NL</option>
+                                <option value="option_1">EN</option>
+                                <option value="option_2">FR</option>
+                            </select>
+                        </form>
+                        <ul>
+                            <li class="a-line">
+                                <a href="">Home</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="">Programma</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="">Nieuws</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="">Info</a>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="large-menu--days">
+                        <div class="days--logo">
+                            <div class="days--logo__gf-19"></div>
+                            <div class="days--logo__logo"></div>
+                        </div>
+                        <ul class="menu--days">
+                            <li class="day--event">
+                                <a href="day.html?day=19">
+                                    <h3>Vr</h3>
+                                    <span>19 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=21">
+                                    <h3>Zo</h3>
+                                    <span>21 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=23">
+                                    <h3>Di</h3>
+                                    <span>23 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=25">
+                                    <h3>Do</h3>
+                                    <span>25 Jul</span>
+                                </a>
+                            </li> 
+                            <li class="day--event">
+                                <a href="day.html?day=27">
+                                    <h3>Za</h3>
+                                    <span>27 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=20">
+                                    <h3>Za</h3>
+                                    <span>20 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=22">
+                                    <h3>Ma</h3>
+                                    <span>22 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=24">
+                                    <h3>Wo</h3>
+                                    <span>24 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=26">
+                                    <h3>Vr</h3>
+                                    <span>26 Jul</span>
+                                </a>
+                            </li>
+                            <li class="day--event">
+                                <a href="day.html?day=28">
+                                    <h3>Zo</h3>
+                                    <span>28 Jul</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="header-info"></div>
+        <div class="header-days"></div>
+    </header>
+
+    <main>
+        <ul class="random-events"></ul>
+        <div class="filters">
+            <div class="filter-header">
+                <div class="filter-header__item filter-img filter-1"></div>
+                <div class="filter-header__item filter-img filter-2"></div>
+                <div class="filter-header__item filter-img filter-3"></div>
+                <div class="filter-header__item filter-img filter-4"></div>
+                <div class="checkbox">
+                    <input type="checkbox" class="filter-header__item">
+                    <p>Gratis</p>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" class="filter-header__item">
+                    <img src="../static/media/all-icons/wheelchair.svg" alt="wheelchair accessability">
+                </div>
+            </div>
+            <div class="filter-categories"></div>
+        </div>
+        <div class="main-events__list"></div>
+    </main>
+    <script src="../static/js/days.js"></script>
+</body>
+</html>
