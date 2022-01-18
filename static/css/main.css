@@ -434,7 +434,7 @@ footer {
     padding: 2rem;
 }
 .email-input input {
-    background-color: #cecece;
+    background-color: #d6d6d6;
     padding: 1rem 2rem;
     border: none;
     width: calc(50rem - 16rem);
@@ -453,6 +453,8 @@ footer {
 
 footer {
     background-image: url(../media/images/background-images/Gentse-feesten-01.jpg);
+    background-position: 10rem;
+    overflow: hidden;
     height: 20rem;
     position: relative;
 }
@@ -463,8 +465,11 @@ footer {
 }
 .footer-box {
     height: 100%;
-    position: absolute;
-    left: 0;
+    width: 80rem;
+    margin: 0 auto;
+}
+.footer-box a img {
+    width: 20rem;
 }
 .footer-p {
     font-family: 'raleway-bold', sans-serif;
