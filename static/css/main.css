@@ -22,6 +22,9 @@ body {
     font-family: 'raleway-regular', sans-serif;
     font-size: 1.2rem;
 }
+a {
+    color: #000;
+}
 h3,
 p {
     margin: 1.5rem 0;
@@ -49,10 +52,16 @@ footer {
     width: 100%;
     height: 75vh;
 }
+.news-header {
+    height: 40rem;
+}
 @media (min-width:1280px) {
     .header-box {
         background-position: 50%;
         height: 90vh;
+    }
+    .news-header {
+        height: 40rem;
     }
     .box-text h3 {
         font-size: 3rem;
@@ -333,22 +342,26 @@ footer {
     overflow: hidden;
 }
 .day--event {
+    background-color: #fff;
     width: 50%;
     height: 5rem;
     text-align: center;
     flex-grow: 1;
     transition: all ease 0.3s;
 }
-.day--event:hover {
-    cursor: pointer;
-    color: #fff;
-    background-color: #000;
+.day--event a {
+    text-decoration: none;
 }
 .day--event h3 {
+    font-size: 2rem;
     margin: 1rem 0 0 0;
 }
 .day--event span {
+    text-decoration: none;
     font-size: 1.1rem;
+}
+.day--event:hover {
+    filter: invert(100%);
 }
 .filters {
     display: flex;
@@ -492,6 +505,7 @@ footer {
     background-size: contain;
     width: 2rem;
     height: 2rem;
+    transition: all ease 0.3s;
 }
 .facebook {
     background-image: url(../media/all-icons/facebook.svg);
@@ -501,4 +515,15 @@ footer {
 }
 .youtube {
     background-image: url(../media/all-icons/youtube.svg);
+}
+.btn-black {
+    transition: all ease 0.3s;
+}
+.btn-black:hover, 
+.twitter:hover,
+.facebook:hover,
+.flickr:hover,
+.youtube:hover {
+    filter: invert(100%);
+    cursor: pointer;
 }
