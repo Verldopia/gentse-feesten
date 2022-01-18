@@ -354,6 +354,7 @@ button {
     transition: all ease 0.3s;
 }
 .filter-header__item:hover {
+    cursor: pointer;
     background-color: #000;
 }
 .filter-categories {
@@ -404,6 +405,9 @@ button {
 .checkbox {
     display: flex;
     max-width: 4rem;
+}
+.checkbox:hover {
+    cursor: pointer;
 }
 .checkbox input {
     min-width: 1rem;

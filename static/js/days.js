@@ -35,29 +35,32 @@
                 .then(data => {
                     this.generateRandomEvent(data)
                     this.generateListeners(data)
-                    this.fetchCategoriesJSON(data)
                 })
         },
         generateRandomEvent(events) {
             const singularDay = events.filter(ev => ev.day === this.day);
-            this.generateHtmlPerCategory(singularDay)
             const randomEvent = singularDay.map((ev) => {
-                randomNumber = Math.floor(Math.random() * 17);
+                const images = ev.image
+                console.log(ev.image)
+                for (const img in images) {
                 return `
                 <div class="box-text--random">
-                    <img src="../static/media/images/main-random/random-(${++randomNumber}).jpg">
+                    <img src="${ev.image === null ? "https://data.stad.gent/explore/dataset/gentse-feesten-evenementen-2019/files/3ef27992535d09811ffc9559f23eb2d3/300" : images.full}">
                     <span class="box-date--main">${ev.day_of_week[0]}${ev.day_of_week[1]} ${ev.day} Jul ${ev.start} u.</span>
                 </div>
                 <div class="box-text--main">
                     <h2>${ev.title}</h2>
                     <span>${ev.location}</span>
                 </div>` 
-            });
+            }});
             this.$randomEvents.innerHTML = `<li class="random-event">${randomEvent[0]}</li>`
             this.$randomEvents.innerHTML += `<li class="random-event">${randomEvent[1]}</li>`
             this.$randomEvents.innerHTML += `<li class="random-event">${randomEvent[2]}</li>`
+            
+            this.generateHtmlPerCategory(singularDay);
+            this.fetchCategoriesJSON();
         },
-        async fetchCategoriesJSON(singularDay) {
+        async fetchCategoriesJSON() {
             await fetch(`https://www.pgm.gent/data/gentsefeesten/categories.json`, {
                 method: 'GET'
             })
@@ -84,10 +87,12 @@
         generateHtmlPerCategory(data) {
             console.log(data)
             this.categoryItem = data.map((ev) => {
+                const images = ev.image
+                for (const img in images) {
                 return `
                 <li class="main-event--item">
                     <div class="box-text--random">
-                        <img src="../static/media/images/main-random/random-(1).jpg">
+                        <img src="${ev.image === null ? "https://data.stad.gent/explore/dataset/gentse-feesten-evenementen-2019/files/3ef27992535d09811ffc9559f23eb2d3/300" : images.full}">
                         <span class="box-date--main">${ev.day_of_week[0]}${ev.day_of_week[1]} ${ev.day} Jul ${ev.start} u.</span>
                     </div>
                     <div class="box-text--main">
@@ -95,10 +100,8 @@
                         <span>${ev.location}</span>
                     </div>
                 </li>` 
-            }).join('')
+            }}).join('')
             this.$mainCategories.innerHTML = `<ul class="main-events">${this.categoryItem}</ul>`
-            
-
         },
         clickListener() {
             console.log('clicks!')
