@@ -6,9 +6,12 @@
         },
         cacheElements() {
             this.$mainEvents = document.querySelector('.main-events');
+            this.$mainEvents = document.querySelector('.main-events');
+            this.$hamburger = document.querySelector('.hamburger-menu');
         },
         generateUI() {
             this.fetchNewsJSON();
+            this.registerListeners();
         },
         async fetchNewsJSON() {
             await fetch(`https://www.pgm.gent/data/gentsefeesten/news.json`, {
@@ -45,6 +48,13 @@
 
             this.$mainEvents.innerHTML = mainEvents;
         },
+        registerListeners() {
+            this.$hamburger.addEventListener('click', this.listener)
+        },
+        listener() {
+            this.$hamburgerItems = document.querySelector('.hamburger-menu--items');
+            this.$hamburgerItems.classList.toggle('hamburger-selected');
+        }
         }
     app.init()
 })();

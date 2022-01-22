@@ -8,11 +8,13 @@
             this.$background = document.querySelector('.header-box');
             this.$randomEvents = document.querySelector('.random-events');
             this.$mainEvents = document.querySelector('.main-events');
+            this.$hamburger = document.querySelector('.hamburger-menu');
         },
         generateUI() {
             this.generateRandomBackground();
             this.fetchEventsJSON();
             this.fetchNewsJSON();
+            this.registerListeners();
         },
         generateRandomBackground() {
             randomNumber = Math.floor(Math.random() * 9);
@@ -35,9 +37,10 @@
                 randomNumber = Math.floor(Math.random() * 17);
                 const images = event.image
                 for (const img in images) {
+                    // console.log(event.image)
                 return `
                 <div class="box-text--random">
-                    <img src="${event.image === null ? "https://data.stad.gent/explore/dataset/gentse-feesten-evenementen-2019/files/3ef27992535d09811ffc9559f23eb2d3/300" : images.full}">
+                    <img src="${event.image === null ? "No image found!" : images.full}">
                     <span class="box-date--main">${event.day_of_week[0]}${event.day_of_week[1]} ${event.day} Jul ${event.start} u.</span>
                 </div>
                 <div class="box-text--main">
@@ -89,6 +92,13 @@
 
             this.$mainEvents.innerHTML = mainEvents;
         },
+        registerListeners() {
+            this.$hamburger.addEventListener('click', this.listener)
+        },
+        listener() {
+            this.$hamburgerItems = document.querySelector('.hamburger-menu--items');
+            this.$hamburgerItems.classList.toggle('hamburger-selected');
+        }
         }
     app.init()
 })();

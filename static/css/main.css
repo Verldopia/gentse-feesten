@@ -89,9 +89,32 @@ footer {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
+    z-index: 100;
+}
+.hamburger-menu--items {
+    display: none;
+    position: fixed;
+    top: -2rem;
+    margin: 2rem auto;
+    padding: 5rem 4rem;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.hamburger-selected {
+    display: block;
+}
+.hamburger-menu--items li {
+    padding: 1rem;
+}
+.hamburger-menu--items a {
+    text-decoration: none;
+    color: #fff;
 }
 @media (min-width: 1280px) {
-    .hamburger-menu {
+    .hamburger-menu,
+    .hamburger-menu--items {
         display: none;
     }
 }
@@ -116,7 +139,11 @@ footer {
     width: 22rem;
     border: none;
 }
-.large-menu--main form button {
+.hamburger-search {
+    padding-left: 2rem;
+}
+.large-menu--main form button,
+.hamburger-search {
     background-image: url(../media/all-icons/optimised-icons/search.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -189,6 +216,7 @@ footer {
     cursor: pointer;
 }
 .box-text--random img {
+    max-height: 21rem;
     transition: ease all 0.3s;
     width: 100%;
 }

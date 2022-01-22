@@ -18,9 +18,12 @@
             this.$randomEvents = document.querySelector('.random-events');
             this.$filter = document.querySelector('.filter-categories');
             this.$mainCategories = document.querySelector('.main-events__list');
+            this.$mainEvents = document.querySelector('.main-events');
+            this.$hamburger = document.querySelector('.hamburger-menu');
         },
         generateUI() {
             this.fetchEventsJSON();
+            this.registerListeners();
         },
         async fetchEventsJSON() {
             await fetch(`https://www.pgm.gent/data/gentsefeesten/events_500.json`, {
@@ -40,12 +43,11 @@
         generateRandomEvent(events) {
             const singularDay = events.filter(ev => ev.day === this.day);
             const randomEvent = singularDay.map((ev) => {
-                const images = ev.image
-                console.log(ev.image)
+                const images = ev.image;
                 for (const img in images) {
                 return `
                 <div class="box-text--random">
-                    <img src="${ev.image === null ? "https://data.stad.gent/explore/dataset/gentse-feesten-evenementen-2019/files/3ef27992535d09811ffc9559f23eb2d3/300" : images.full}">
+                    <img src="${!images.full ? "https://data.stad.gent/explore/dataset/gentse-feesten-evenementen-2019/files/3ef27992535d09811ffc9559f23eb2d3/300" : images.full}" loading="lazy">
                     <span class="box-date--main">${ev.day_of_week[0]}${ev.day_of_week[1]} ${ev.day} Jul ${ev.start} u.</span>
                 </div>
                 <div class="box-text--main">
@@ -103,8 +105,12 @@
             }}).join('')
             this.$mainCategories.innerHTML = `<ul class="main-events">${this.categoryItem}</ul>`
         },
-        clickListener() {
-            console.log('clicks!')
+        registerListeners() {
+            this.$hamburger.addEventListener('click', this.listener)
+        },
+        listener() {
+            this.$hamburgerItems = document.querySelector('.hamburger-menu--items');
+            this.$hamburgerItems.classList.toggle('hamburger-selected');
         }
         }
     app.init()
