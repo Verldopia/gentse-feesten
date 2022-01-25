@@ -21,7 +21,7 @@
             this.$background.style.backgroundImage = `url("static/media/images/background-images/Gentse-feesten-0${++randomNumber}.jpg")`;
         },
         async fetchEventsJSON() {
-            await fetch(`https://www.pgm.gent/data/gentsefeesten/events_500.json`, {
+            await fetch(`https://www.pgm.gent/data/gentsefeesten/events.json`, {
                 method: 'GET'
             })
                 .then(result => {

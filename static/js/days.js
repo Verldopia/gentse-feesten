@@ -23,10 +23,9 @@
         },
         generateUI() {
             this.fetchEventsJSON();
-            this.registerListeners();
         },
         async fetchEventsJSON() {
-            await fetch(`https://www.pgm.gent/data/gentsefeesten/events_500.json`, {
+            await fetch(`https://www.pgm.gent/data/gentsefeesten/events.json`, {
                 method: 'GET'
             })
                 .then(result => {
@@ -37,7 +36,6 @@
             })
                 .then(data => {
                     this.generateRandomEvent(data)
-                    this.generateListeners(data)
                 })
         },
         generateRandomEvent(events) {
@@ -74,17 +72,12 @@
             })
                 .then(data => {
                     this.generateCategories(data)
+                    this.registerListeners(data)
                 })
         },
         generateCategories(data) {
             this.listItem = data.map((cat) => `<li class="filter-btn" data-category="${cat}"><button>${cat}</button></li>`).join('');
             this.$filter.innerHTML = `<ul>${this.listItem}</ul>`;
-        },
-        generateListeners(event) {
-            this.$filterBtn = document.querySelectorAll('.filter-btn');
-            for (const button of this.$filterBtn) {
-                button.addEventListener("click", this.clickListener);
-            }
         },
         generateHtmlPerCategory(data) {
             console.log(data)
@@ -105,13 +98,21 @@
             }}).join('')
             this.$mainCategories.innerHTML = `<ul class="main-events">${this.categoryItem}</ul>`
         },
-        registerListeners() {
-            this.$hamburger.addEventListener('click', this.listener)
+        registerListeners(category) {
+            console.log(category)
+            this.$filterBtn = document.querySelectorAll('.filter-btn');
+            for (const button of this.$filterBtn) {
+                button.addEventListener("click", this.listenerCategories);
+            }
+            this.$hamburger.addEventListener('click', this.listenerHamburger)
         },
-        listener() {
+        listenerHamburger() {
             this.$hamburgerItems = document.querySelector('.hamburger-menu--items');
             this.$hamburgerItems.classList.toggle('hamburger-selected');
-        }
+        },
+        listenerCategories() {
+            console.log('yeet')
+        },
         }
     app.init()
 })();

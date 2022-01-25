@@ -4,9 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentse Feesten 2020</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/media/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>Home | Gentse Feesten 2019</title>
 </head>
 <body>
-    <h1>search result</h1>
+    <header>
+        <div class="news-header header-box">
+            <div class="header-logo">
+                <a href="../index.html">
+                    <img src="../static/media/all-icons/optimised-icons/GF-logo-inverse-NL.svg" alt="Gentse Feesten logo">
+                </a>
+            </div>
+            <nav>
+                <div class="hamburger-menu"></div>
+                <ul class="hamburger-menu--items">
+                    <li>
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="../events/details.html"><span class="hamburger-search">Zoeken</span></a>
+                    </li>
+                    <li>
+                        <a href="../events/day.html?day=19">Programma</a>
+                    </li>
+                    <li>
+                        <a href="../news.html">Nieuws</a>
+                    </li>
+                    <li>
+                        <a href="../index.html">Info</a>
+                    </li>
+                </ul>
+                <div class="large-menu">
+                    <div class="large-menu--main">
+                        <form action="../events/search.html" method="get">
+                            <input type="search" id="header-search--input" placeholder="Doorzoek het programma..." name="search">
+                            <button id="header-search--submit"></button>
+                            <select class="language">
+                                <option value="">NL</option>
+                                <option value="option_1">EN</option>
+                                <option value="option_2">FR</option>
+                            </select>
+                        </form>
+                        <ul>
+                            <li class="a-line">
+                                <a href="../index.html">Home</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="../events/day.html?day=19">Programma</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="../news.html">Nieuws</a>
+                                <div class="line"></div>
+                            </li>
+                            <li class="a-line">
+                                <a href="../index.html">Info</a>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="large-menu--days">
+                        <div class="days--logo">
+                            <div class="days--logo__gf-19"></div>
+                            <div class="days--logo__logo"></div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="header-info"></div>
+        <div class="header-days"></div>
+    </header>
+
+    <main>
+        <div class="main-events"></div>
+
+        <div class="box-email">
+            <h4>Blijf op de hoogte</h4>
+            <p>Abonneer je op de nieuwsbrief van de Gentse Feesten</p>
+            <p>De stad Gent zal de persoonsgegevens die u invult met respect voor uw <a href="../index.html">privacy</a> behandelen.</p>
+            <form class="email-input" method="get">
+                <label for="email">E-mailadres</label>
+                <div class="input">
+                    <input type="input" name="email">
+                    <button class="btn-black" id="email--submit">Inschrijven</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="header-logo footer-box">
+            <a href="../index.html">
+                <img src="../static/media/all-icons/optimised-icons/GF-logo-inverse-NL.svg" alt="Gentse Feesten logo">
+            </a>
+            <p class="footer-p">Volg de Gentse Feesten op alle sociale media kanalen</p>
+            <div class="box-socials">
+                <a href="../index.html" class="twitter"></a>
+                <a href="../index.html" class="facebook"></a>
+                <a href="../index.html" class="flickr"></a>
+                <a href="../index.html" class="youtube"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/search.js"></script>
 </body>
 </html>
