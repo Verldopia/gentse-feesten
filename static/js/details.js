@@ -6,14 +6,11 @@
             this.generateUI();
         },
         cacheURLElements() {
-            this.searched = window.location.search;
-            this.params = new URLSearchParams(this.searched);
-            this.search = this.params.get('search');
+            this.search = window.location.search;
+            this.params = new URLSearchParams(this.search)
+            this.slug = this.params.get('slug')
         },
         cacheElements() {
-            this.$randomEvents = document.querySelector('.random-events');
-            this.$filter = document.querySelector('.filter-categories');
-            this.$mainCategories = document.querySelector('.main-events__list');
             this.$mainEvents = document.querySelector('.main-events');
             this.$hamburger = document.querySelector('.hamburger-menu');
         },
@@ -32,32 +29,28 @@
                     return result.json()
             })
                 .then(data => {
-                    this.generateEvents(data)
+                    this.generateEvent(data)
                 })
         },
-        generateEvents(data) {
-            this.filteredData = data.filter((ev) => {
-                if (ev.title.toLowerCase().includes(this.search) && ev) {
-                    return ev
+        generateEvent(events) {
+            this.filteredData = events.filter((el) => {
+                if (this.slug === el.slug) {
+                    return el.slug
                 }
-            })
-            
-            this.event = this.filteredData.map((ev) => {
-                return `
-                <div class="event">
-                    <div class="box-image">
-                        <img src="${ev.image === null? '' : ev.image.full}" alt="${ev.title}">
-                        <p class="event-date">${ev.day_of_week}</p>
+            });
+            ev = this.filteredData[0];
+            this.categoryItem = `
+                    <div class="box-text--img">
+                        <img class="img-search" src="${ev.image === null? '' : ev.image.full}" alt="${ev.title}">
+                        <span class="box-date--main box-date--search">${ev.day_of_week} ${ev.day} juli ${ev.start} tot ${ev.end} u.</span>
                     </div>
-                    <div class="box-text">
+                    <div class="box-text--main">
                         <a href="details.html?slug=${ev.slug}">${ev.title}</a>
-                        <p>${ev.category.join(' / ')}</p>
-                        <a class="event-arrow"></a>
-                    </div>
-                </div>` 
-            }).join('');
-
-            this.$mainEvents.innerHTML = this.event
+                        <span>Locatie: ${ev.location}</span>
+                        <p>${ev.description === undefined ? 'Geen verdere info beschikbaar.' : ev.description}</p>
+                        <p>Georganiseerd door ${ev.organizer}</p>
+                    </div>`
+            this.$mainEvents.innerHTML = this.categoryItem
         },
         registerListeners() {
             this.$hamburger.addEventListener('click', this.listenerHamburger)

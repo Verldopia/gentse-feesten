@@ -33,21 +33,18 @@
                 .then(data => this.generateRandomEvent(data))
         },
         generateRandomEvent(events) {
-            const randomEvent = events.map((event) => {
+            const randomEvent = events.map((ev) => {
                 randomNumber = Math.floor(Math.random() * 17);
-                const images = event.image
-                for (const img in images) {
-                    // console.log(event.image)
                 return `
                 <div class="box-text--random">
-                    <img src="${event.image === null ? "No image found!" : images.full}">
-                    <span class="box-date--main">${event.day_of_week[0]}${event.day_of_week[1]} ${event.day} Jul ${event.start} u.</span>
+                    <img src="${ev.image === null? '' : ev.image.full}" alt="${ev.title}">
+                    <span class="box-date--main">${ev.day_of_week[0]}${ev.day_of_week[1]} ${ev.day} Jul ${ev.start} u.</span>
                 </div>
-                <div class="box-text--main">
-                    <h2>${event.title}</h2>
-                    <span>${event.location}</span>
+                <div class="box-text--main" id="${ev.id}">
+                    <a href="events/details.html?slug=${ev.slug}">${ev.title}</a>
+                    <span>${ev.location}</span>
                 </div>` 
-            }});
+            });
             randomNumber = Math.floor(Math.random() * events.length);
             this.eventHTML = randomEvent[randomNumber];
             this.$randomEvents.innerHTML = `<li class="random-event">${this.eventHTML}</li>`
@@ -74,21 +71,19 @@
         },
         generateEvent(events) {
             const mainEvents = events.slice(0,3).map((ev) => {
-                const images = ev.picture;
-                for (const img in images) {
                 return `
-                <div class="event">
+                <div class="event" id="${ev.id}">
                     <div class="box-image">
-                        <img src="https://www.pgm.gent/data/gentsefeesten/${images.medium}" alt="${ev.title}">
+                        <img src="https://www.pgm.gent/data/gentsefeesten/${ev.picture.medium}" alt="${ev.title}">
                         <p class="event-date">08/07</p>
                     </div>
                     <div class="box-text">
-                        <h3>${ev.title}</h3>
+                        <a href="events/details.html?slug=${ev.id}">${ev.title}</a>
                         <p>${ev.synopsis}</p>
                         <a href="#" class="event-arrow"></a>
                     </div>
                 </div>`
-            }}).join('');
+            }).join('');
 
             this.$mainEvents.innerHTML = mainEvents;
         },

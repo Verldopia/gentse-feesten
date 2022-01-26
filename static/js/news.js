@@ -30,21 +30,19 @@
         generateEvent(events) {
             console.log(events)
             const mainEvents = events.map((ev) => {
-                const images = ev.picture
-                for (const img in images) {
                 return `
                 <div class="event">
                     <div class="box-image">
-                        <img src="https://www.pgm.gent/data/gentsefeesten/${images.medium}" alt="${ev.title}">
+                        <img src="https://www.pgm.gent/data/gentsefeesten/${ev.picture.medium}" alt="${ev.title}">
                         <p class="event-date">08/07</p>
                     </div>
                     <div class="box-text">
-                        <h3>${ev.title}</h3>
+                        <a href="events/details.html?slug=${ev.id}">${ev.title}</a>
                         <p>${ev.synopsis}</p>
                         <a href="#" class="event-arrow"></a>
                     </div>
                 </div>` 
-            }}).join('');
+            }).join('');
 
             this.$mainEvents.innerHTML = mainEvents;
         },
