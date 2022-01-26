@@ -349,7 +349,8 @@ footer {
 .newsletter--main {
     display: block;
     width: 100%;
-    max-width: 20rem;
+    max-width: 27rem;
+    text-align: center;
     margin: 0 auto;
     color: #000000;
     padding: 1.5rem 2rem;
@@ -586,6 +587,9 @@ footer {
     order: 2;
     font-size: 1.5rem;
     color: #fff;
+}
+.h4-details {
+    margin-left: 0.5rem;
 }
 
 /* Footer */
