@@ -46,7 +46,7 @@ button {
 input[type=search] {
     outline: none;
     box-sizing: border-box;
-  }
+}
 input[type=search]:focus {
     border: 1px dashed red;
 }
@@ -402,7 +402,6 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    overflow: hidden;
 }
 .day--event {
     background-color: #fff;
@@ -550,11 +549,17 @@ footer {
 }
 .boxes,
 .list {
+    background-image: url(../media/all-icons/list.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     border: 3px solid #000;
     width: 3rem;
     height: 3rem;
     background-color: #fff;
     cursor: pointer;
+}
+.boxes {
+    background-image: url(../media/all-icons/raster.svg);
 }
 .boxes:hover,
 .list:hover {
@@ -569,6 +574,7 @@ footer {
 }
 .list-selected--item {
     width: 80rem;
+    max-width: 100%;
 }
 .list-selected--item .box-text--random {
     display: none;
