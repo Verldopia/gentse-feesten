@@ -9,7 +9,7 @@
     font-family: 'raleway-regular';
     src: url('../fonts/Raleway/Raleway-Regular.woff2') format('woff2'),
          url('../fonts/Raleway/Raleway-Regular.woff') format('woff');
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
 }
 * {
@@ -339,7 +339,7 @@ footer {
     }
 }
 .event-arrow {
-    background-image: url(../media/all-icons/arrow-right.svg);
+    background-image: url(../media/all-icons/optimised-icons/arrow-right-optimised.svg);
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
@@ -476,19 +476,19 @@ footer {
     }
 }
 .filter-img {
-    background-image: url(../media/all-icons/clock.svg);
+    background-image: url(../media/all-icons/optimised-icons/clock.svg);
     background-repeat: no-repeat;
     background-size: 2rem;
     background-position: center;
 }
 .filter-1 {
-    background-image: url(../media/all-icons/map.svg);
+    background-image: url(../media/all-icons/optimised-icons/map.svg);
 }
 .filter-2 {
-    background-image: url(../media/all-icons/marker.svg);
+    background-image: url(../media/all-icons/optimised-icons/marker.svg);
 }
 .filter-4 {
-    background-image: url(../media/all-icons/balloon.svg);
+    background-image: url(../media/all-icons/optimised-icons/balloon.svg);
 }
 .checkbox {
     display: flex;
@@ -549,7 +549,7 @@ footer {
 }
 .boxes,
 .list {
-    background-image: url(../media/all-icons/list.svg);
+    background-image: url(../media/all-icons/optimised-icons/list.svg);
     background-repeat: no-repeat;
     background-position: center;
     border: 3px solid #000;
@@ -559,7 +559,7 @@ footer {
     cursor: pointer;
 }
 .boxes {
-    background-image: url(../media/all-icons/raster.svg);
+    background-image: url(../media/all-icons/optimised-icons/raster.svg);
 }
 .boxes:hover,
 .list:hover {
@@ -635,22 +635,21 @@ footer {
 .youtube {
     background-color: #fff;
     border-radius: 50%;
-    background-image: url(../media/all-icons/twitter.svg);
+    background-image: url(../media/all-icons/optimised-icons/twitter-square.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
     width: 2rem;
     height: 2rem;
     transition: all ease 0.3s;
 }
 .facebook {
-    background-image: url(../media/all-icons/facebook.svg);
+    background-image: url(../media/all-icons/optimised-icons/facebook-square.svg);
 }
 .flickr {
-    background-image: url(../media/all-icons/flickr.svg);
+    background-image: url(../media/all-icons/optimised-icons/flickr-square.svg);
 }
 .youtube {
-    background-image: url(../media/all-icons/youtube.svg);
+    background-image: url(../media/all-icons/optimised-icons/youtube-square.svg);
 }
 .btn-black {
     transition: all ease 0.3s;
